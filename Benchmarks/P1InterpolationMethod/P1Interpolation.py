@@ -51,7 +51,7 @@ for dim in [2,3]:
       num = 0
       while t1 - t0 < 5:
         num += 1
-        mesh = ot.LevelSetMesher(N2).build(levelSet, I) #maillage Ma où la BE dont le maillage discrétisé par N2 a en moins les noeuds éliminés selon le critère levelSet
+        mesh = ot.LevelSetMesher(N2).build(levelSet, I) #maillage Ma qui est la BE discrétisée par N2 et qui a en moins les noeuds à retirer selon le critère levelSet
         boundingBox = ot.IntervalMesher([N-1]*dim).build(I) #maillage dont la boîte associée contient le maillage Ma
         bBprocess = ot.GaussianProcess(covModels[dim-2], boundingBox) #simulation par cholesky sur boundingBox
         process = P1interpolationGaussianProcess(mesh,bBprocess) #processus d'interpolation P1 pour simuler sur Ma
