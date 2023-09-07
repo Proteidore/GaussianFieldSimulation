@@ -33,7 +33,7 @@ covModel3 = ot.GeneralizedExponential([1.0/(theta**(1/2))]*3, [sigma] ,2) #modè
 #regroupement de données 
 nbNodesBE= 750 #nombre de noeuds de la boite englobante permettant la création du maillage Ma
 covModels = [covModel2,covModel3]
-M = 1000
+M = 10000
 
 
 for dim in [2,3]:
