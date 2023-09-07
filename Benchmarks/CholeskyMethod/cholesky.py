@@ -18,7 +18,7 @@ for dim in [1, 2, 3]:
         print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(), "meanTime=", (t1 - t0) / num, "s")
  
 print("\n")  
-for num in [250, 500, 750, 1000] #nb de réalisations
+for num in [250, 500, 750, 1000]: #nb de réalisations
     for dim in [1, 2, 3]:
        myCovModel=ot.ExponentialModel([1.0]*dim, [1.0])
        for size in [10, 100, 1000]:
