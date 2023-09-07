@@ -27,7 +27,7 @@ for dim in [1, 2, 3]:
 
 
 print("\n")  
-for num in [250, 500, 750, 1000] #nombre de réalisations
+for num in [250, 500, 750, 1000]: #nombre de réalisations
     for dim in [1, 2, 3]: #dimension de la maille
        for size in [10, 100, 1000]: 
          N = int(size**(1/dim)) #nombre de noeuds
