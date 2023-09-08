@@ -39,7 +39,7 @@ M = 10000
 for dim in [2,3]:
    for size in [10, 100, 1000, 10000]:
       N = int(size**(1/dim))
-      xMin = [0.0]*dim
+      xMin = [-1.0]*dim
       xMax = [1.0]*dim       
       I = ot.Interval(xMin, xMax) #limites d'une boite englobante (BE) (pour créer le maillage Ma)
       N2 = [int(nbNodesBE**(1/dim))]*dim #discrétisation de la BE 
@@ -63,7 +63,7 @@ print("\n")
       
 for dim in [2,3]:
    for size in [50, 500, 1000, 2000]:
-      xMin = [0.0]*dim
+      xMin = [-1.0]*dim
       xMax = [1.0]*dim       
       I = ot.Interval(xMin, xMax) 
       N2 = [int(nbNodesBE**(1/dim))]*dim 
@@ -85,7 +85,7 @@ for dim in [2,3]:
 #et l'erreur L2 de M réalisations sur Ma par Cholesky   
 print("")
 for dim in [2,3]:
-   xMin = [0.0]*dim
+   xMin = [-1.0]*dim
    xMax = [1.0]*dim       
    I = ot.Interval(xMin, xMax) 
    N2 = [int(nbNodesBE**(1/dim))]*dim 
