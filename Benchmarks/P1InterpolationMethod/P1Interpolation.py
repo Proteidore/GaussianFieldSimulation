@@ -64,7 +64,8 @@ print("\n")
 for dim in [2,3]:
    for size in [50, 500, 1000, 2000]:
       xMin = [-1.0]*dim
-      xMax = [1.0]*dim       
+      xMax = [1.0]*dim 
+      boxLength = xMax[0] - xMin[0]
       I = ot.Interval(xMin, xMax) 
       N2 = [int(nbNodesBE**(1/dim))]*dim 
       levelSet = ot.LevelSet(f[dim-2], toEliminate[dim-2], 1-(0.5**(1/dim))) 
@@ -76,7 +77,7 @@ for dim in [2,3]:
       process = P1interpolationGaussianProcess(mesh,bBprocess)
       sample =  process.getSample(M)
       err = checkCovariance(sample, covModels[dim-2])
-      h_bB = math.sqrt(2)/(N-1) #diamètre de tous les dim-simplexes composant le maillage boundingBox       
+      h_bB = math.sqrt(dim) * (boxLength/(N-1)) #diamètre de tous les dim-simplexes composant le maillage boundingBox       
       print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(),"method=", "P1Interpolation+Cholesky","nb_realisations=",M,"nb_nodes_boundingBox=", boundingBox.getVerticesNumber(),"h_bB=",  h_bB, "errL2=",err)
       
 
