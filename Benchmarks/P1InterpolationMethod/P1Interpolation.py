@@ -33,7 +33,7 @@ covModel3 = ot.GeneralizedExponential([1.0/(theta**(1/2))]*3, [sigma] ,2) #modè
 #regroupement de données 
 nbNodesBE= 750 #nombre de noeuds de la boite englobante permettant la création du maillage Ma
 covModels = [covModel2,covModel3]
-M = 10000
+
 
 
 for dim in [2,3]:
@@ -63,22 +63,23 @@ print("\n")
       
 for dim in [2,3]:
    for size in [50, 500, 1000, 2000]:
-      xMin = [-1.0]*dim
-      xMax = [1.0]*dim 
-      boxLength = xMax[0] - xMin[0]
-      I = ot.Interval(xMin, xMax) 
-      N2 = [int(nbNodesBE**(1/dim))]*dim 
-      levelSet = ot.LevelSet(f[dim-2], toEliminate[dim-2], 1-(0.5**(1/dim))) 
-      mesh = ot.LevelSetMesher(N2).build(levelSet, I)
+        for num in [250,500,750,1000]:
+          xMin = [-1.0]*dim
+          xMax = [1.0]*dim 
+          boxLength = xMax[0] - xMin[0]
+          I = ot.Interval(xMin, xMax) 
+          N2 = [int(nbNodesBE**(1/dim))]*dim 
+          levelSet = ot.LevelSet(f[dim-2], toEliminate[dim-2], 1-(0.5**(1/dim))) 
+          mesh = ot.LevelSetMesher(N2).build(levelSet, I)
       
-      N = int(size**(1/dim))
-      boundingBox = ot.IntervalMesher([N-1]*dim).build(I)
-      bBprocess = ot.GaussianProcess(covModels[dim-2], boundingBox) #cholesky
-      process = P1interpolationGaussianProcess(mesh,bBprocess)
-      sample =  process.getSample(M)
-      err = checkCovariance(sample, covModels[dim-2])
-      h_bB = math.sqrt(dim) * (boxLength/(N-1)) #diamètre de tous les dim-simplexes composant le maillage boundingBox       
-      print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(),"method=", "P1Interpolation+Cholesky","nb_realisations=",M,"nb_nodes_boundingBox=", boundingBox.getVerticesNumber(),"h_bB=",  h_bB, "errL2=",err)
+          N = int(size**(1/dim))
+          boundingBox = ot.IntervalMesher([N-1]*dim).build(I)
+          bBprocess = ot.GaussianProcess(covModels[dim-2], boundingBox) #cholesky
+          process = P1interpolationGaussianProcess(mesh,bBprocess)
+          sample =  process.getSample(num)
+          err = checkCovariance(sample, covModels[dim-2])
+          h_bB = math.sqrt(dim) * (boxLength/(N-1)) #diamètre de tous les dim-simplexes composant le maillage boundingBox       
+          print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(),"method=", "P1Interpolation+Cholesky","nb_realisations=",M,"nb_nodes_boundingBox=", boundingBox.getVerticesNumber(),"h_bB=",  h_bB, "errL2=",err)
       
 
 #simulation par Cholesky directement sur le maillage de simulation Ma (mesh)
@@ -86,13 +87,14 @@ for dim in [2,3]:
 #et l'erreur L2 de M réalisations sur Ma par Cholesky   
 print("")
 for dim in [2,3]:
-   xMin = [-1.0]*dim
-   xMax = [1.0]*dim       
-   I = ot.Interval(xMin, xMax) 
-   N2 = [int(nbNodesBE**(1/dim))]*dim 
-   levelSet = ot.LevelSet(f[dim-2], toEliminate[dim-2], 1-(0.5**(1/dim))) 
-   mesh = ot.LevelSetMesher(N2).build(levelSet, I)
-   meshProcess = ot.GaussianProcess(covModels[dim-2], mesh)
-   sample =  meshProcess.getSample(M)
-   err = checkCovariance(sample, covModels[dim-2])
-   print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(),"method=", "Cholesky","nb_realisations=",M, "errL2=",err)
+   for num in [250,500,750,1000]:
+      xMin = [-1.0]*dim
+      xMax = [1.0]*dim       
+      I = ot.Interval(xMin, xMax) 
+      N2 = [int(nbNodesBE**(1/dim))]*dim 
+      levelSet = ot.LevelSet(f[dim-2], toEliminate[dim-2], 1-(0.5**(1/dim))) 
+      mesh = ot.LevelSetMesher(N2).build(levelSet, I)
+      meshProcess = ot.GaussianProcess(covModels[dim-2], mesh)
+      sample =  meshProcess.getSample(M)
+      err = checkCovariance(sample, covModels[dim-2])
+      print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(),"method=", "Cholesky","nb_realisations=",M, "errL2=",err)
