@@ -79,7 +79,7 @@ for dim in [2,3]:
           sample =  process.getSample(num)
           err = checkCovariance(sample, covModels[dim-2])
           h_bB = math.sqrt(dim) * (boxLength/(N-1)) #diamètre de tous les dim-simplexes composant le maillage boundingBox       
-          print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(),"method=", "P1Interpolation+Cholesky","nb_realisations=",M,"nb_nodes_boundingBox=", boundingBox.getVerticesNumber(),"h_bB=",  h_bB, "errL2=",err)
+          print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(),"method=", "P1Interpolation+Cholesky","nb_realisations=",num,"nb_nodes_boundingBox=", boundingBox.getVerticesNumber(),"h_bB=",  h_bB, "errL2=",err)
       
 
 #simulation par Cholesky directement sur le maillage de simulation Ma (mesh)
@@ -97,4 +97,4 @@ for dim in [2,3]:
       meshProcess = ot.GaussianProcess(covModels[dim-2], mesh)
       sample =  meshProcess.getSample(M)
       err = checkCovariance(sample, covModels[dim-2])
-      print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(),"method=", "Cholesky","nb_realisations=",M, "errL2=",err)
+      print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(),"method=", "Cholesky","nb_realisations=",num, "errL2=",err)
