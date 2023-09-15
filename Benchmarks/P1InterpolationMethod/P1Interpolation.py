@@ -57,7 +57,7 @@ for dim in [2,3]:
         process = P1interpolationGaussianProcess(mesh,bBprocess) #processus d'interpolation P1 pour simuler sur Ma
         field = process.getRealization() #réalisation sur Ma
         t1 = time.time()
-      print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(),"method=", "P1Interpolation+Cholesky", "nb_nodes_boundingBox=", boundingBox.getVerticesNumber() ,"meanTime=", str((t1 - t0) / num)+"s","nb_nodes_boundingBox=", boundingBox.getVerticesNumber())
+      print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(),"method=", "P1Interpolation+Cholesky", "nb_nodes_boundingBox=", boundingBox.getVerticesNumber() ,"meanTime=", str((t1 - t0) / num)+"s")
      
 print("\n")     
       
@@ -79,7 +79,7 @@ for dim in [2,3]:
           sample =  process.getSample(num)
           err = checkCovariance(sample, covModels[dim-2])
           h_bB = math.sqrt(dim) * (boxLength/(N-1)) #diamètre de tous les dim-simplexes composant le maillage boundingBox       
-          print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(),"method=", "P1Interpolation+Cholesky","nb_realisations=",num,"nb_nodes_boundingBox=", boundingBox.getVerticesNumber(),"h_bB=",  h_bB, "errL2=",err)
+          print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(),"method=", "P1Interpolation+Cholesky","nb_nodes_boundingBox=", boundingBox.getVerticesNumber(),"h_bB=",  h_bB, "nb_realisations=", num, "errL2=",err)
       
 
 #simulation par Cholesky directement sur le maillage de simulation Ma (mesh)
