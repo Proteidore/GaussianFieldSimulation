@@ -72,7 +72,7 @@ for dim in [2,3]:
           levelSet = ot.LevelSet(f[dim-2], toEliminate[dim-2], 1-(0.5**(1/dim))) 
           mesh = ot.LevelSetMesher(N2).build(levelSet, I)
       
-          N = int(size**(1/dim))
+          N = int(size**(1/dim)) +1
           boundingBox = ot.IntervalMesher([N-1]*dim).build(I)
           bBprocess = ot.GaussianProcess(covModels[dim-2], boundingBox) #cholesky
           process = P1interpolationGaussianProcess(mesh,bBprocess)
