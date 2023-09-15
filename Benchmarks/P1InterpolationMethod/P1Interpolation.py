@@ -57,7 +57,7 @@ for dim in [2,3]:
         process = P1interpolationGaussianProcess(mesh,bBprocess) #processus d'interpolation P1 pour simuler sur Ma
         field = process.getRealization() #réalisation sur Ma
         t1 = time.time()
-      print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(),"method=", "P1Interpolation+Cholesky", "meanTime=", str((t1 - t0) / num)+"s","nb_nodes_boundingBox=", boundingBox.getVerticesNumber())
+      print("dim=", dim, "nb nodes=", mesh.getVerticesNumber(),"method=", "P1Interpolation+Cholesky", "nb_nodes_boundingBox=", boundingBox.getVerticesNumber() ,"meanTime=", str((t1 - t0) / num)+"s","nb_nodes_boundingBox=", boundingBox.getVerticesNumber())
      
 print("\n")     
       
