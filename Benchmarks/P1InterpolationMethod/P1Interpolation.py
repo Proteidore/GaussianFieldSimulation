@@ -63,7 +63,7 @@ print("\n")
       
 for dim in [2,3]:
    for size in [10, 100, 500, 1000]:
-        for num in [250,500,750,1000]:
+        for num in [250,1000,4000,10000]:
           xMin = [-1.0]*dim
           xMax = [1.0]*dim 
           boxLength = xMax[0] - xMin[0]
@@ -87,7 +87,7 @@ for dim in [2,3]:
 #et l'erreur L2 de M réalisations sur Ma par Cholesky   
 print("")
 for dim in [2,3]:
-   for num in [250,500,750,1000]:
+   for num in [250,1000,4000,10000]:
       xMin = [-1.0]*dim
       xMax = [1.0]*dim       
       I = ot.Interval(xMin, xMax) 
