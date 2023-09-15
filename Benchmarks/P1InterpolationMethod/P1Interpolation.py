@@ -62,7 +62,7 @@ for dim in [2,3]:
 print("\n")     
       
 for dim in [2,3]:
-   for size in [50, 500, 1000, 2000]:
+   for size in [10, 100, 500, 1000]:
         for num in [250,500,750,1000]:
           xMin = [-1.0]*dim
           xMax = [1.0]*dim 
