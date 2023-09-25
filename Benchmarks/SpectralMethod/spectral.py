@@ -74,8 +74,8 @@ for dim in [1,2,3]:
 print("\n")  
 
 for dim in [1,2,3]:
-   for num in [100,500,1000,2000]: #nb de réalisations
-      for size in [100,500,1000]:
+   for size in [100,500,1000]:
+      for num in [100,500,1000,2000]: #nb de réalisations
          N = int(size**(1/dim))
          if N%2 == 1:
            N += 1
