@@ -1,6 +1,9 @@
 import openturns as ot
 import time
 from testTool import checkCovariance
+import os
+
+ot.RandomGenerator.SetSeed(os.getpid())
 
 ot.ResourceMap.SetAsUnsignedInteger('GaussianProcess-GibbsMaximumIteration', 300)
 
