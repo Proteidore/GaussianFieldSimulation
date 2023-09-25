@@ -1,6 +1,9 @@
 import openturns as ot
 import time
 from testTool import checkCovariance
+import os
+
+ot.RandomGenerator.SetSeed(os.getpid())
 
 ot.ResourceMap.SetAsString("HMatrix-ClusteringAlgorithm", "median") #type de découpage hiérarchique de l'espace
 ot.ResourceMap.SetAsString("HMatrix-CompressionMethod", "AcaPlus") #moyen de compression des blocs admissibles
