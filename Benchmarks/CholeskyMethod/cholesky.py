@@ -1,6 +1,9 @@
 import openturns as ot
 import time
 from testTool import checkCovariance
+import os
+
+ot.RandomGenerator.SetSeed(os.getpid())
 
 for dim in [1, 2, 3]:
     myCovModel = ot.ExponentialModel([1.0]*dim, [1.0]) #modèle de covariance
