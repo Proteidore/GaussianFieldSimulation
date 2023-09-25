@@ -27,10 +27,11 @@ for dim in [1, 2, 3]:
 
 
 print("\n")  
-for num in [250, 500, 750, 1000]: #nombre de réalisations
-    for dim in [1, 2, 3]: #dimension de la maille
-       for size in [10, 100, 1000]: 
-         N = int(size**(1/dim)) #nombre de noeuds
+
+for dim in [1, 2, 3]: #dimension de la maille
+   for size in [10, 100, 1000]: 
+       N = int(size**(1/dim)) #nombre de noeuds
+       for num in [250, 500, 750, 1000]: #nombre de réalisations
          mesh = ot.IntervalMesher([N-1]*dim).build(ot.Interval([-10.0]*dim, [10.0]*dim)) #maillage
          myCovModel=ot.ExponentialModel([1.0]*dim, [1.0]) #modèle de covariance
          process = ot.GaussianProcess(myCovModel, mesh) #processus gaussien
