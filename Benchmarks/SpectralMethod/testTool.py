@@ -30,7 +30,7 @@ def getNormInfDim1(smodel1, freqGridStarter, spectralStep, N):
     
     for i in range(N):
        freq = freqGridStarter + i*spectralStep
-       temp = smodel1(freq) #calcul de la norme de Frobenius de la différence
+       temp = smodel1(freq) 
        value = ot.SquareMatrix((temp * temp).real()).computeTrace() #car hermitien
        if maxValue < value : 
           maxValue = value
@@ -60,7 +60,7 @@ def getNormInfDim2(smodel1, freqGridStarters, spectralSteps, N):
        freq2 = freqGridStarters[1] + j*spectralSteps[1]
        for i in range(N[0]):
           freq1 = freqGridStarters[0] + i*spectralSteps[0]
-          temp = smodel1((freq1,freq2)) #calcul de la norme de Frobenius de la différence
+          temp = smodel1((freq1,freq2)) 
           value = ot.SquareMatrix((temp * temp).real()).computeTrace() #car hermitien
           if maxValue < value : 
              maxValue = value
@@ -95,7 +95,7 @@ def getNormInfDim3(smodel1, freqGridStarters, spectralSteps, N):
           freq2 = freqGridStarters[1] + j*spectralSteps[1]
           for i in range(N[0]):
             freq1 = freqGridStarters[0] + i*spectralSteps[0]
-            temp = smodel1((freq1,freq2,freq3)) #calcul de la norme de Frobenius de la différence
+            temp = smodel1((freq1,freq2,freq3)) 
             value = ot.SquareMatrix((temp * temp).real()).computeTrace() #car hermitien
             if maxValue < value : 
                maxValue = value
