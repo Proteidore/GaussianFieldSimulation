@@ -27,9 +27,9 @@ for nbIt in [100,200,300]: #nombre d'itérations pour la méthode de Galli-Gao-G
 print("\n")  
 for nbIt in [10,50,100]: #nombre d'itérations pour la méthode de Galli-Gao-Gibbs 
   ot.ResourceMap.SetAsUnsignedInteger('GaussianProcess-GibbsMaximumIteration', nbIt)
-  for num in [250, 500, 750, 1000]: #nombre de réalisations
-     for size in [10, 100]: #nombre de noeuds
-          N = size
+  for size in [10, 100]: #nombre de noeuds
+     N = size
+     for num in [250, 500, 750, 1000]: #nombre de réalisations
           mesh = ot.IntervalMesher([N-1]*dim).build(ot.Interval([-10.0]*dim, [10.0]*dim))
           process = ot.GaussianProcess(myCovModel, mesh) #processus gaussien
           process.setSamplingMethod(ot.GaussianProcess.GALLIGAOGIBBS) #choix de simulation par Galli-Gao-Gibbs
