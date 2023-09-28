@@ -60,7 +60,8 @@ Français: Ce projet est un ensemble de benchmarks testant plusieurs méthodes d
 
  ### rapportdestageTEX  
  
- (rapport de stage sur les méthodes de simulation sous format de fichiers .tex)
+ Rapport de stage sur les méthodes de simulation sous format de fichiers .tex .
+
 
      ---> images    -> dossier contenant des images pour le rapport
 
@@ -78,13 +79,18 @@ Français: Ce projet est un ensemble de benchmarks testant plusieurs méthodes d
 
      ---> P1interpolation.tex    -> description de la méthode de P1-interpolation
 
-     ---> rapportDeStagesubdivided.tex   -> fichier permettant de construire le rapport
+     ---> rapportDeStagesubdivided.tex   -> fichier permettant de construire le rapport 
 
      ---> references.bib    -> références bibliographiques associées au rapport
 
      ---> spectralMethod.tex    -> description de la méthode spectrale
      
-         
+
+#### Pour produire un pdf du rapport en ligne de commandes:
+ - pdflatex rapportDeStagesubdivided.tex
+ - bibtex rapportDeStagesubdivided.aux
+ - pdflatex rapportDeStagesubdivided.tex
+       
           
           
 
