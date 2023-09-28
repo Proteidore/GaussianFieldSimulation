@@ -5,7 +5,7 @@ English: This project is a set of benchmarks testing several methods of simulati
 Français: Ce projet est un ensemble de benchmarks testant plusieurs méthodes de simulation de champs gaussiens.
 
 ## Description de l'arborescence de fichiers
----> Benchmarks
+ ---> Benchmarks
 
      ---> CholeskyMethod
      
@@ -13,7 +13,7 @@ Français: Ce projet est un ensemble de benchmarks testant plusieurs méthodes d
           
           |__ testTool.py   ->  fonction pour le calcul de l'erreur L2
           
-     ---> GalliGaiGibbsMethod
+     ---> GalliGaoGibbsMethod
      
           |__ GGG.py   -> fait le benchmark de la méthode de Galli-Gao-Gibbs  
           
@@ -57,7 +57,7 @@ Français: Ce projet est un ensemble de benchmarks testant plusieurs méthodes d
 
 
 
----> rapportdestageTEX   -> rapport de stage sur les méthodes de simulation sous format de fichiers .tex
+ ---> rapportdestageTEX   -> rapport de stage sur les méthodes de simulation sous format de fichiers .tex
 
      ---> images    -> dossier contenant des images pour le rapport
 
