@@ -5,7 +5,6 @@ English: This project is a set of benchmarks testing several methods of simulati
 Français: Ce projet est un ensemble de benchmarks testant plusieurs méthodes de simulation de champs gaussiens.
 
 ## Description de l'arborescence de fichiers
-
 ---> Benchmarks
 
      ---> CholeskyMethod
@@ -55,8 +54,34 @@ Français: Ce projet est un ensemble de benchmarks testant plusieurs méthodes d
           |__ testTool.py   -> fonctions utiles pour faire des estimations d'erreur
           
           |__ tool.py   -> fonctions utiles pour construire les pas spatiaux et les pas spectraux évoqués pour cette méthode
-          
-          |__ userDefinedSpectralModel.py   -> classe implémentant les densités spectrales définies par morceaux
+
+
+
+---> rapportdestageTEX   -> rapport de stage sur les méthodes de simulation sous format de fichiers .tex
+
+     ---> images    -> dossier contenant des images pour le rapport
+
+     ---> Appendice.tex    -> appendice du rapport
+
+     ---> chapitreIntro.tex    -> chapitre d'introduction
+
+     ---> choleskyMethod.tex    -> description de la méthode de Cholesky
+
+     ---> GGGibbsMethod.tex    -> description de la méthode de Galli-Gao-Gibbs
+
+     ---> hmatricesMethod.tex    -> description de la méthode des Hmatrices
+
+     ---> myAbstract.tex    -> abstract du rapport
+
+     ---> P1interpolation.tex    -> description de la méthode de P1-interpolation
+
+     ---> rapportDeStagesubdivided.tex   -> fichier permettant de construire le rapport
+
+     ---> references.bib    -> références bibliographiques associées au rapport
+
+     ---> spectralMethod.tex    -> description de la méthode spectrale
+     
+         
           
           
 
