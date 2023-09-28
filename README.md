@@ -134,7 +134,7 @@ Pour chacun des 5 dossiers présentés ci-dessus, afin d'engendrer les graphique
 et exécuter le fichier se terminant par -Graphics.py . Après l'exécution, tous les fichiers produits ont le
 même nom qu'un fichier apparaissant dans le dossier rapportdestageTEX/images . Certains fichiers peuvent
 avoir l'extension .vtk : ce ne sont pas des fichiers images. Pour les fichiers .vtk, il est nécessaire d'utiliser 
-un logiciel de visualisation comme paraview, permettant de visualiser les maillages ou les réalisations d'un processus.
+un logiciel de visualisation comme paraview permettant de visualiser les maillages ou les réalisations d'un processus.
 Dans ce cas, l'utilisateur est contraint de capturer l'image via le logiciel.
 
        
