@@ -94,11 +94,11 @@ Français: Ce projet est un ensemble de benchmarks testant plusieurs méthodes d
 
 ### createTheGraphicsInTheReport
 
-Scripts python permettant de produire les graphiques présents dans le rapport de stage
+Scripts python permettant de produire les graphiques présents dans le rapport de stage pour chaque méthode de simulation
 
      ---> choleskyGraphics
      
-          |__ choleskyGraphics.py  ->  créer les graphiques (apparaissant dans le rapport) pour la méthode de Cholesky  
+          |__ choleskyGraphics.py  ->  créer les graphiques pour la méthode de Cholesky  
           
      ---> GGGibbsGraphics
      
