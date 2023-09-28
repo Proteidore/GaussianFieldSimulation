@@ -1,0 +1,25 @@
+\chapter{Introduction}
+\label{introProb}
+\section*{Problème général}
+
+
+\noindent Soit $(\Omega,\mathcal{F},\mathbb{P})$ un espace probabilisé \\
+Soit $n,d$ deux entiers naturels non nuls et $D$ un fermé borné de $\mathbb{R}^n$ \\
+Soit $X=(X_t)_{t\in \mathbb{R}^n}$ un processus gaussien centré d'ordre 2 à valeurs dans $\mathbb{R}^d$ \\
+Notons $C: \mathbb{R}^n \times \mathbb{R}^n \rightarrow M_d(\mathbb{R}) $ la fonction de covariance de $X$ \\
+
+On souhaite simuler une réalisation du processus $X$ sur le domaine $D$. Pour~cela,
+on discrétise le domaine $D$ par un maillage $M$ (de préférence une triangulation de $D$) et on
+simule $X$ sur les n\oe uds du maillage $(n_i)_{i \in \llbracket 1; m \rrbracket} $ où $m$ est le nombre de noeuds. Il s'agit donc de simuler
+le vecteur aléatoire $X_M=(X_{n_1},...,X_{n_m})$, qui n'est rien d'autre qu'un vecteur gaussien centré à valeurs dans $(\mathbb{R}^d)^m$
+qu'on assimile à $\mathbb{R}^{dm}$. 
+D'où $X_M$ est caractérisé par sa matrice de covariance $\Sigma \in M_{dm}(\mathbb{R})$ dont les coefficients sont donnés
+par la fonction de covariance $C$. Plus concrètement pour $(i,k) \in \llbracket 1; m \rrbracket^2, (j,l) \in \llbracket 1; d \rrbracket^2,\; \Sigma_{(i-1)m + j, (k-1)m + l} = C(n_i,n_k)_{j,l} = \mathbb{E}((X_{n_i})_{j}(X_{n_k})_{l}) $. On a en parti\-culier que $\Sigma$ est symétrique semi-définie positive.\\
+
+La problématique revient donc à simuler la loi $\mathcal{N}(0_{\mathbb{R}^{dm}},\Sigma)$. On présentera d'abord des méthodes classiques pour ensuite en exhiber d'autres dont l'approche 
+considère davantage le type de processus que l'on cherche à simuler.
+~\\
+
+On supposera par la suite que $\Sigma$ est symétrique réelle définie positive, quitte à la régulariser\footnote{En notant $\lambda_{max}$ le module maximum du spectre de $\Sigma$,
+la régularisation se fait en ajoutant une fraction $\epsilon$ de $\lambda_{max}$ sur sa diagonale i.e on ajoute $\epsilon \cdot \lambda_{max}$ aux
+coefficients diagonaux de $\Sigma$}.

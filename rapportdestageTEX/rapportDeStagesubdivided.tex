@@ -1,0 +1,111 @@
+\documentclass[a4paper,11pt]{memoir}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{fancyhdr}
+\usepackage{tabulary}
+\usepackage{pgfplots}
+\usepackage{caption}
+
+\captionsetup[table]{labelformat=empty}
+
+\usepackage[explicit, clearempty]{titlesec}
+%\titleformat{\chapter}[display]{\bfseries\filright}{\huge\chaptername~\thechapter}{20pt}{\Huge#1}
+%\titleformat{name=\chapter, numberless}[display]{\bfseries\filright}{}{0pt}{\Huge#1}[\addcontentsline{toc}{chapter}{#1}]
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\usepackage{tocbibind}
+
+
+
+\title{Algorithmes de simulation de champs gaussiens}
+\author{Valentin Abongo}
+
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RO,LE]{\textit{\hfill\leftmark}}
+\fancyfoot[R]{\footnotesize{© Airbus SAS tous droits réservés}}
+
+\raggedbottom
+
+\newcommand{\ud}{\,\mathrm{d}}
+\theoremstyle{definition} \newtheorem{definition}{Définition}[section]
+\theoremstyle{definition} \newtheorem{theorem}{Théorème}[section]
+\theoremstyle{definition} \newtheorem{corollary}{Corollaire}[section]
+\theoremstyle{definition} \newtheorem{property}{Propriété}[section]
+\theoremstyle{definition} \newtheorem{hypothesis}{Hypothèse}[section]
+\theoremstyle{remark} \newtheorem{remark}{Remarque}[section]
+%\theoremstyle{definition} \newtheorem{proof}{Preuve}[section]
+
+\newcommand{\BEGIN}{\STATE \fbox{Début}}
+\renewcommand{\algorithmicensure}{\textbf{Sortie(s)}}
+\newcommand{\END}{\STATE \fbox{Fin}}
+\renewcommand{\algorithmicrequire}{\textbf{Entrée(s)}}
+\renewcommand{\algorithmicend}{\textbf{fin}}
+\renewcommand{\algorithmicfor}{\textbf{pour}}
+\renewcommand{\algorithmicto}{\textbf{à}}
+\renewcommand{\algorithmicendfor}{\textbf{fin du pour}}
+\renewcommand{\algorithmicdo}{\textbf{faire}}
+
+\floatname{algorithm}{Algorithme}
+
+
+
+\begin{document}
+\maketitle
+\nocite{*}
+%abstract du mémoire
+\input{myAbstract}
+
+\newpage
+
+\tableofcontents
+
+%chapitre introductif 
+\input{chapitreIntro}
+
+%les définitions de bases (peut être à mettre dans appendix)
+%estimations empiriques pour valider ou non une méthode de simulation (appendix) (évoquer Box-Muller en appendix peut-être)
+
+
+
+
+%chapitre Cholesky
+\input{choleskyMethod}
+
+%chapitre hmatrices
+\input{hmatricesMethod}
+
+%chapitre Gibbs
+\input{GGGibbsMethod}
+
+%\chapter{Simulation par résolution d'un problème de Fredholm}
+
+%chapitre méthode spectrale
+\input{spectralMethod}
+
+%chapitre interpolation P1
+\input{P1interpolation}
+
+\small{
+\bibliographystyle{plain-fr}
+\bibliography{references}
+}
+\normalsize{}
+%appendix
+\input{Appendice}
+
+\end{document}

@@ -1,0 +1,334 @@
+\appendix
+
+\chapter{Base théorique pour la méthode spectrale}
+\label{annexeA}
+On introduit ici les outils théoriques permettant de comprendre la méthode
+spectrale (voir chapitre~\ref{spectralMeth}). Pour la section~\ref{kloppi}, les terminologies de mesure complexe et de variation totale d'une mesure complexe ont
+été puisées dans \cite{kloppCours}.
+
+
+
+\section{Mesure matricielle}
+\label{kloppi}
+Soit $(\Lambda, \xi)$ un espace mesurable, $d \in \mathbb{N^*}$, $\mu = (\mu_{i,j})_{(i,j) \in \llbracket 1; d \rrbracket^2}$ une mesure vectorielle sur $(\Lambda, \xi)$ à valeurs dans $M_d(\mathbb{C})$ où les $\mu_{i,j}$ sont des mesures complexes dont on note leur variation totale $| \mu_{i,j} |$. \\
+
+Pour $p \in [1, \infty[ $, on notera $L^{p}(\Lambda, \mu)$ l'ensemble des fonctions mesurables $f: \Lambda \rightarrow \mathbb{C}$ telles que $\forall (i,j) \in \llbracket 1; d \rrbracket^2, f \in L^{p}(\Lambda, |\mu_{i,j}|)$. 
+L'une des conséquences immédiates est que pour $f \in L^{1}(\Lambda, \mu)$:\\
+
+$\int_{\Lambda} f \mathrm{d}\mu = 
+                                    \begin{pmatrix}
+                                      \int_{\Lambda} f \mathrm{d}\mu_{1,1} & \cdots & \int_{\Lambda} f \mathrm{d}\mu_{1,d} \\
+                                      \vdots &\ddots & \vdots \\
+                                      \int_{\Lambda} f \mathrm{d}\mu_{d,1} & \cdots & \int_{\Lambda} f \mathrm{d}\mu_{d,d} \\
+                                     \end{pmatrix}$  $\in M_d(\mathbb{C})$ est bien définie\\
+         
+         
+~\\         
+De plus on remarquera que comme la variation totale d'une mesure complexe est une mesure positive finie, pour $ (p,q) \in [1, \infty[^2 $ tel que $p \leq q, \;L^{q}(\Lambda, \mu) \subset L^{p}(\Lambda, \mu)$. D'où en particulier $L^{2}(\Lambda, \mu) \subset L^{1}(\Lambda, \mu)$.\\
+~\\
+Pour $p \in [1, \infty[ $, on peut noter aussi que $L^{p}(\Lambda, \mu) = L^{p}(\Lambda, \nu)$ où $\nu$ est une mesure positive sur $(\Lambda, \xi)$ telle que $\forall A \in \xi, \; \nu(A) = \displaystyle\sum_{(i,j) \in \llbracket 1;d \rrbracket^2} |\mu_{i,j}|(A) $. \\
+
+\noindent D'où une structure d'espace de Banach de style $L^p$ telle que l'on connaît bien. Pour la suite, $\nu$ sera notée $\|\mu\|$. 
+
+\section{Mesure stochastique orthogonale centrée et isométrie}
+
+Soit $(\Omega, \mathcal{A}, \mathbb{P})$ un espace probabilisé, $\mu = (\mu_{i,j})_{(i,j) \in \llbracket 1;d \rrbracket^2}$ une mesure vectorielle sur $(\Lambda, \xi)$ à valeurs dans $M_d(\mathbb{C})$ où les $\mu_{i,j}$ sont des mesures complexes.\\
+
+\noindent On note:
+\begin{itemize}
+\item $<.,.>$ l'application telle que $\forall (f,g) \in L^{2}(\Lambda, \mu)^2, \; <f,g> = \displaystyle\int_{\Lambda} f\bar{g} \mathrm{d}\mu$ \\
+
+\item $L^{2}_{0}(\Omega, \mathcal{A}, \mathbb{P}; \mathbb{C}^{d})$, les vecteurs aléatoires centrés de $L^{2}(\Omega, \mathcal{A}, \mathbb{P}; \mathbb{C}^{d})$\\
+
+\item $\|.\|_{L^{2}(\mathbb{P}; \mathbb{C}^d)}$ la norme hilbertienne de $L^{2}(\Omega, \mathcal{A}, \mathbb{P}; \mathbb{C}^{d}) \;$ telle que $\|X\|_{L^{2}(\mathbb{P}, \mathbb{C}^d)}^2$ vaut $ \mathbb{E}(\|X\|^{2}_{2})$, où $\|.\|_{2}$ est la norme hermitienne naturelle dans $\mathbb{C}^{d}$\\
+\end{itemize}
+
+\begin{remark}$L^{2}_{0}(\Omega, \mathcal{A}, \mathbb{P};\mathbb{C}^{d})$ est un sous-espace vectoriel fermé de \\$L^{2}(\Omega, \mathcal{A}, \mathbb{P}; \mathbb{C}^{d})$.\end{remark}
+
+\begin{definition}
+Soit $I: L^{2}(\Lambda, \mu)  \rightarrow L^{2}_{0}(\Omega, \mathcal{A}, \mathbb{P}; \mathbb{C}^{d})$ une application. On dit que $I$ est une mesure stochastique orthogonale centrée (m.s.o.c) de mesure structurelle (ou de base) $\mu$ si $\forall f \in L^{2}(\Lambda, \mu)$:
+\begin{equation}
+<f,f>\;=\;\mathbb{E}(I(f)I(f)^{*})
+\end{equation}
+
+\noindent Et si tel est le cas, on définit la mesure stochastique associée à $I$ comme l'application $\phi: \xi \rightarrow L^{2}_{0}(\Omega, \mathcal{A}, \mathbb{P}; \mathbb{C}^{d})$ telle que $\forall B \in \xi, \; \phi(B)= I(\mathds{1}_{B})$.
+\end{definition}
+
+\begin{remark}
+\begin{equation*}
+ \forall f \in L^{2}(\Lambda, \mu), \; <f,f>\;=\;\mathbb{E}(I(f)I(f)^{*}) \end{equation*}
+\begin{equation} \iff \end{equation}
+\begin{equation*}
+\forall (f,g) \in L^{2}(\Lambda, \mu)^2,  <f,g>\;=\;\mathbb{E}(I(f)I(g)^{*})
+\end{equation*}
+\end{remark}
+~\\
+Supposons maintenant que $I$ est une m.s.o.c. D'où les propriétés suivantes:
+\begin{itemize}
+\item  $tr(\mu) = \displaystyle\sum_{i=1}^{d} \mu_{i,i}$ est une mesure positive sur $(\Lambda,\xi)$ (mesure-trace de $\mu$) \\ 
+
+
+\item  $\forall (i,j) \in \llbracket 1;d\rrbracket^2, \;\forall (f,g) \in L^{2}(\Lambda, \mu)^2$:\\$\; |\int_{\Lambda} f\bar{g} d\mu_{i,j} | \leq (\int_{\Lambda} |f|^2 dtr(\mu))^{\frac{1}{2}}(\int_{\Lambda} |g|^2 dtr(\mu))^{\frac{1}{2}}$\\
+
+
+\item $\forall A \in \xi,\; |\mu_{i,j}(A)| \leq |\mu_{i,j}|(A) \leq tr(\mu)(A)$ (la mesure-trace contrôle tous les coefficients de la mesure vectorielle $\mu$)\\
+
+\item $L^{2}(\Lambda, \mu) = L^{2}(\Lambda, tr(\mu))$ et $I$ est une isométrie de $L^{2}(\Lambda, tr(\mu))$ dans $L^{2}_{0}(\Omega, \mathcal{A}, \mathbb{P}, \mathbb{C}^{d})$\\
+
+
+
+\item $\phi$ la mesure stochastique associée à $I$ est bien une mesure stochastique sur $(\Lambda, \xi)$ à valeurs dans $L^{2}_{0}(\Omega, \mathcal{A}, \mathbb{P}, \mathbb{C}^{d})$ i.e que pour toute famille dénombrable de parties mesurables 2 à 2 disjointes $(A_j)_{j \in \mathbb{N}}, \;$\\$\phi(\displaystyle\cup_{j \in \mathbb{N}} A_j) =  \displaystyle\sum_{j \in \mathbb{N}} \phi(A_j) $ (somme au sens de la norme $\|.\|_{L^{2}(\mathbb{P}, \mathbb{C}^d)}$)\\
+
+\end{itemize}
+
+\begin{definition}
+\label{A22}
+Soit $I: L^{2}(\Lambda, \mu)  \rightarrow L^{2}_{0}(\Omega, \mathcal{A}, \mathbb{P}; \mathbb{C}^{d})$ une m.s.o.c de mesure de base $\mu$ dont on note $\phi$ la mesure stochastique associée. On définit pour $f \in L^{2}(\Lambda, \mu)$, l'intégrale de Wiener de $f$ associée à la mesure stochastique $\phi$ ainsi: 
+
+\begin{equation} \int_{\Lambda} f(\lambda) \phi(d\lambda) = I(f) \end{equation}
+
+\noindent Et pour toute partie mesurable $\Gamma \subset \Lambda$, pour tout $f \in L^{2}(\Lambda, \mu)$, on définit:
+$\int_{\Gamma} f(\lambda) \phi(d\lambda) = \int_{\Lambda} \mathds{1}_{\Gamma}(\lambda)f(\lambda) \phi(d\lambda) = I(\mathds{1}_{\Gamma}f)$\\
+\end{definition}
+
+\begin{remark} Si on a une mesure stochastique $\phi_2$ issue d'une autre m.s.o.c $I_2$ de mesure de base aussi $\mu$, alors pour démontrer que $\phi_2 = \phi$, il suffit juste de démontrer que l'on dispose de $A$ une partie dense de $L^{2}(\Lambda, tr(\mu))$ telle que l'intégrale de Wiener associée à $\phi$ et celle associée à $\phi_2$ sont égales pour tout élément de $A$ (ce qui revient à dire $I_{|A} = (I_{2})_{|A} $) \end{remark}
+
+
+
+\section{Sur l'existence d'une m.s.o.c associée à un champ aléatoire}
+
+\noindent Pour plus de détails sur les résultats généraux de cette section, voir \cite{alma991000210539806616}.\\
+~\\Considérons $(\Omega, F, \mathbb{P})$ un espace probabilisé, $n$ et $d$ deux entiers naturels non nuls et $X: \mathbb{R}^n \times \Omega \rightarrow \mathbb{R}^d$ un champ aléatoire. On émet l'hypothèse suivante:
+\begin{hypothesis}
+$X$ est d'ordre 2, centré, continue en moyenne quadratique, faiblement stationnaire d'ordre 2. \label{hypFond}
+\end{hypothesis}
+
+\noindent On note $R: \mathbb{R}^n \rightarrow M_d(\mathbb{C})$ la fonction d'autocovariance de $X$.
+
+\subsection{Mesure spectrale}
+
+\begin{theorem}
+Sous l'hypothèse~\ref{hypFond}, on dispose d'une unique mesure vectorielle $\mu = (\mu_{i,j})_{(i,j) \in \llbracket 1;d \rrbracket^2} $ sur $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$ à valeurs dans l'ensemble des matrices hermitiennes semi-définies positives de $M_d(\mathbb{C})$, dont les $\mu_{i,j}$ sont des mesures complexes et telle que: \begin{equation} \forall t \in \mathbb{R}^n, R(t) = \displaystyle\int_{\mathbb{R}^n} \exp(i<t,\omega>_{n}) d\mu(\omega) \end{equation}
+\end{theorem}
+
+\noindent ($<.,.>_{n}$ est le produit scalaire usuel dans $\mathbb{R}^n$)
+
+\begin{definition}
+Avec les notations du précédent théorème, on appelle $\mu$ la mesure spectrale matricielle ou juste mesure spectrale de $X$ et on la note $M_X$.
+\end{definition}
+
+\begin{property}
+$tr(M_X)$ est une mesure positive sur $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$. 
+\end{property}
+
+\begin{property}
+$\forall A \in \mathcal{B}(\mathbb{R}^n), \; M_X(A) = \overline{M_X(-A)}$ donc
+en particulier $tr(M_X)(A) = tr(M_X)(-A)$.
+\end{property}
+
+\subsection{Densité spectrale}
+
+\begin{definition}
+Si les mesures $(M_{X})_{i,j}$ sont à densité par rapport à la mesure de Lebesgue $d\omega$ de $\mathbb{R}^n$ alors on dispose de $S = (S_{i,j})_{(i,j) \in \llbracket 1; d \rrbracket^2}  $ une application mesurable allant de $\mathbb{R}^n$ dans $M_d(\mathbb{C})$, $d\omega$-intégrable et unique à un ensemble de mesure nulle près par rapport à la mesure $d\omega$, telle que:
+
+\begin{equation} \forall A \in \mathcal{B}(\mathbb{R}^n),  M_X(A) = \displaystyle\int_{A} S(\omega)d\omega \end{equation}
+\\ Donc $\forall (i,j) \in \llbracket 1; d \rrbracket^2, \; \forall A \in \mathcal{B}(\mathbb{R}^n), (M_{X})_{i,j}(A) = \displaystyle\int_{A} S_{i,j}(\omega)d\omega$\\
+~\\On appelle $S$ la densité spectrale de $X$ et on la note $S_X$.
+
+\end{definition}
+~\\
+Supposons jusqu'à la fin de cette sous-section que le champ $X$ admet une
+densité spectrale $S_X$. On observe alors ces propriétés:\\
+\begin{itemize}
+\item $\forall t \in \mathbb{R}^n, R(t) = \displaystyle\int_{\mathbb{R}^n} \exp(i<t,\omega>_{n})S_X(\omega) d\omega$
+
+\item  $S_X$ est $d\omega$-presque partout hermitienne semi-définie positive
+
+\item Pour presque tout $\omega \in \mathbb{R}^n$ , $S_X(-\omega) = \overline{S_X(\omega)}$
+
+\item Si  $\|R\|_F$ est dans $L^1(\mathbb{R}^n,dt)$ (où $dt = d\omega$)  alors $S_X$ peut être décrite explicitement via une transformée de Fourier: \\$\forall \omega \in \mathbb{R}^n, S_X(\omega) = (2\pi)^{-n}\displaystyle\int_{\mathbb{R}^n} \exp(-i<\omega,t>_n)R(t) dt $. \\
+\end{itemize}
+
+\begin{remark}
+Tous les coefficients de $R$ sont dans $L^1(\mathbb{R}^n,dt)$ si et seulement si
+$\|R\|_F$ est dans $L^1(\mathbb{R}^n,dt)$ ($\;\|.\|_F$ désigne la norme de Frobenius).
+\end{remark}
+
+
+\subsection{Densité spectrale fréquentielle}
+\label{DSFr}
+Mettons en avant maintenant le fait que la notation $\omega$ souligne la notion de pulsation rencontrée en physique mais il est possible que l'on souhaite parler non pas de pulsation mais de fréquence $f = \frac{\omega}{2\pi}$. C'est pourquoi l'on définit une autre densité spectrale que l'on appelle densité spectrale fréquentielle. On suppose de nouveau que le champ aléatoire $X$ admet une densité spectrale $S_X$.
+
+\begin{definition}
+On définit alors la densité spectrale fréquentielle de $X$ comme l'application $S^{fr}_X : \mathbb{R}^n \rightarrow M_d(\mathbb{R})$ telle que:
+\begin{equation*}
+\forall f \in \mathbb{R}^n, S^{fr}_X(f) = (2\pi)^{n}S_X(2\pi f)
+\end{equation*}
+\end{definition}
+
+\begin{property}
+Si $\|R\|_F$ est dans $L^1(\mathbb{R}^n,dt)$ alors $S^{fr}_X$ peut être totalement
+décrite par une transformée de Fourier de la fonction d'autocovariance $R$: \begin{equation*} \forall f \in \mathbb{R}^n,\;  S^{fr}_X(f) = \displaystyle\int_{\mathbb{R}^n} \exp(-2\pi i<f,t>_n)R(t) dt \end{equation*}
+\end{property}
+
+
+\section{Représentation spectrale de X}
+\label{repSpecSect}
+Sous l'hypothèse \ref{hypFond}, on a pu exhiber dans la section précédente la notion de mesure spectrale matricielle mais on peut aller plus loin et démontrer l'existence d'une unique mesure stochastique associée à $X$, $\phi_X$, issue d'une unique m.s.o.c. $I_X$ décrivant totalement $X$. Précisément sous l'hypothèse \ref{hypFond}:
+
+\begin{theorem}
+\label{repSpec} Il existe une unique mesure stochastique $\phi_X : \mathcal{B}(\mathbb{R}^n) \rightarrow L^{2}_{0}(\Omega, \mathcal{A}, \mathbb{P}, \mathbb{C}^{d})$ associée à une unique m.s.o.c $I_X$ de mesure de base la mesure spectrale $M_X$, telle que:
+\begin{equation*}
+\forall t \in \mathbb{R}^n, X(t,.) = \displaystyle\int_{\mathbb{R}^n} \exp(i<t,\omega>_{n}) \phi_X(d\omega)
+\end{equation*}
+
+\noindent Si de plus $X$ est un champ gaussien, $\phi_X$ est une mesure stochastique gaussienne centrée i.e $\forall A \in \mathcal{B}(\mathbb{R}^n), \phi_X(A)$ est un vecteur gaussien à valeurs dans $\mathbb{C}^d$, centré, dont la matrice de covariance complexe vaut $\mathbb{E}(\phi_X(A)\phi_X(A)^{*}) \; ( = M_X(A))$
+\end{theorem}
+
+\begin{property}
+$\forall f \in L^2(\mathbb{R}^n, M_X),\; \overline{I_X(f)} = I_X(\bar{f}(-\cdot))$
+\end{property}
+
+\begin{remark} \noindent Cette première propriété est inspirée de la page 52 du livre de Prigarin \cite{bookPS}. \end{remark}
+
+\begin{property}
+$\forall A \in \mathcal{B}(\mathbb{R}^n),\; \phi_X(A) = \overline{\phi_X(-A)}$
+\end{property}
+
+\begin{property}$\forall (A,B) \in \mathcal{B}(\mathbb{R}^n)^2, \; \mathbb{E}(\phi_X(A)\phi(B)_{X}^{\top}) = M_X(A \cap (-B))$ 
+\end{property}
+
+\begin{property}
+Si $X$ est un champ gaussien alors toute famille d'éléments de $I_X(L^{2}(\mathbb{R}^n, M_X))$ indexée par un ensemble $D$ quelconque est un processus gaussien centré. 
+\end{property}
+
+
+\chapter{Code pour les tests numériques}
+\label{codeNumAnnexe}
+Du code utilisant la librairie OpenTURNS a été créé pour les tests numériques.
+Ce code est disponible sous demande sur un dépôt git (Github). On se propose donc ici de décrire la structure des dossiers/fichiers de ce dépôt.
+Tout est rassemblé dans un même dossier de nom Benchmarks.
+
+\section{Dossier CholeskyMethod}
+\label{dossCholeskyM}
+Le dossier est composé de deux fichiers. Le fichier testTool.py contient une unique fonction
+du nom checkCovariance() qui consiste à partir un échantillon de réalisations de déterminer l'erreur
+$L^2$ (voir la sous-section~\ref{quantifErreur} du chapitre~\ref{chapCholesky}) par rapport à une matrice $\Sigma$ construite de la même façon qu'au chapitre~\ref{introProb} à l'aide
+du maillage où on effectue les réalisations et d'une fonction de covariance $C$. Ce fichier existe dans tous les dossiers qui seront décrits dans les sections suivantes
+mais pour le dossier SpectralMethod, le fichier testTool.py sera agrémenté d'autres fonctions.
+Le second fichier se nomme cholesky.py et il contient des tests numériques qui sont détaillés
+au chapitre~\ref{chapCholesky} à la section~\ref{errConvCholesky}.
+\section{Dossier HmatrixMethod}
+Le dossier est composé de deux fichiers. Le fichier testTool.py et
+le fichier Hmatrix.py qui contient des tests numériques qui sont détaillés
+au chapitre~\ref{hmatrixchapter} à la section~\ref{hmatrixerrconv}.
+
+\section{Dossier GalliGaoGibbsMethod}
+Le dossier est composé de deux fichiers. Le fichier testTool.py et
+le fichier GGG.py qui contient des tests numériques qui sont détaillés
+au chapitre~\ref{GGGMethod} à la section~\ref{gggErrConv}.
+
+\section{Dossier SpectralMethod}
+\label{dossSpec}
+Le dossier est composé de 11 fichiers et par la suite, quand on parlera de densité spectrale, on
+sous-entendra densité spectrale fréquentielle (voir la sous-section~\ref{DSFr} de l'annexe~\ref{annexeA}). Les fichiers
+mySpectralGaussianProcess1D.py, mySpectralGaussianProcess2D.py et mySpectralGaussianProcess3D.py\\
+contiennent l'implémentation de la méthode spectrale en fonction de la dimension d'entrée
+du processus $X: \mathbb{R}^n \times \Omega \rightarrow \mathbb{R}^d$ (n=1, 2 ou 3). Ces
+fichiers ne contiennent qu'une classe, celle qui implémente la méthode spectrale et
+qui porte le même nom que le fichier sauf que ça commence par une majuscule. La classe, en plus
+du constructeur, contient systématiquement les méthodes utilisables suivantes: getRealization(),
+getSample(), getOutputDimension() et getMesh().\\
+
+Les fichiers estimationSpectraleDim1.py, estimationSpectraleDim2.py, estimationSpectraleDim3.py contiennent
+l'implémentation de l'estimateur de la densité spectrale évoquée à la section~\ref{erreurConvSpectral}
+du chapitre~\ref{spectralMeth}. Ces fichiers ne contiennent qu'une classe, celle qui implémente l'estimateur
+de la densité spectrale. La classe, en plus du constructeur, contient systématiquement la méthode utilisable
+buildFromSample() qui évalue l'estimateur en fonction des réalisations sur le maillage formé par les points de simulation
+et (en utilisant les notations des sections~\ref{subdivdomspec} et~\ref{subdiv} du chapitre~\ref{spectralMeth}) en
+fonction de $N_1, \dots, N_n$ et de $T_1 - \Delta t_1 , \cdots, T_n - \Delta t_n  = (N_n- 1)\Delta t_n$. Plus explicitement,
+la syntaxe se présente ainsi:
+\begin{equation*} buildFromSample(sample, [N_1, \cdots, N_n], [T_1 - \Delta t_1 , \cdots, T_n - \Delta t_n]) \end{equation*}
+~\\
+Le fichier spectralModels.py contient l'implémentation de plusieurs densités spectrales:
+
+\begin{equation} S(f) = \frac{1}{2A} \mathds{1}_{[-A,A]}(f) \tag{S1} \label{S1}\end{equation}
+\begin{equation} S(f) = S(f_1,\cdots,f_n) = \sigma^{2} (\pi \theta)^{\frac{n}{2}} exp(-\pi^{2} \theta \|f\|_{2}^{2}) . I_{d} \tag{S2}\label{S2}\end{equation}
+\begin{equation} S(f) = S(f_1,f_2,f_3) = \frac{8\pi a}{(a^2 +(2\pi)^{2} \|f\|_{2}^{2})^{2}} \tag{S3}\label{S3}\end{equation}
+\begin{equation} S(f) = S(f_1,f_2) = \sigma^2 b_1.b_2.\pi.exp(-\pi^2 (b_1^2 f_1^2 + b_2^2 f_2^2) ) \tag{S4}\label{S4}\end{equation}
+
+\noindent Les fonctions d'autocovariance associées à ces densités sont respectivement:
+
+\begin{equation} R(t) = \frac{sin(2\pi A t)}{2\pi A t}  \tag{R1}\label{R1} \end{equation}
+\begin{equation} R(t) = R(t_1,\cdots,t_n) = \sigma^{2} exp(- \frac{\|t\|_{2}^{2}}{\theta}) . I_{d} \tag{R2}\label{R2}\end{equation}
+\begin{equation} R(t) = R(t_1,t_2,t_3) = exp(-a \|t\|_{2})  \tag{R3}\label{R3}\end{equation}
+\begin{equation} R(t) = R(t_1,t_2) = \sigma^2 exp(-(t_1/b_1)^{2} - (t_2/b_2)^{2}) \tag{R4}\label{R4}\end{equation}
+
+
+\noindent Les densités \eqref{S1}, \eqref{S3}, et \eqref{S4} sont implémentées par les classes respectives
+UniformSpectralModel, SpectralModelofExponential3D1D et SpectralModelofAnExponential2D1D. La densité
+\eqref{S2} est implémentée de façon générale par la classe GaussianSpectralModel mais dans
+le cas où $n=1$, on utilise la classe GaussianSpectralModelDim1 afin d'éviter des problèmes
+de compatibilité avec la librairie OpenTURNS.\\
+
+Le fichier tool.py contient deux méthodes. Toujours en utilisant
+les notations des sections~\ref{subdivdomspec} et~\ref{subdiv} du chapitre~\ref{spectralMeth},
+la méthode createSpatialSteps()
+permet de déduire la liste $[\Delta t_1, \cdots, \Delta t_n]$ à partir
+de la liste $[N_1 - 1, \cdots, N_n -1]$ et la liste $[T_1 - \Delta t_1 , \cdots, T_n - \Delta t_n]$.
+En effet pour $i \in \llbracket 1;n \rrbracket, \; \Delta t_i = \frac{T_i - \Delta t_i}{N_i - 1}$.
+Plus explicitement, la syntaxe se présente ainsi:
+\begin{equation*} [\Delta t_1, \cdots, \Delta t_n] = createSpatialSteps([N_1 - 1, \cdots, N_n -1], [T_1 - \Delta t_1 , \cdots, T_n - \Delta t_n]) \end{equation*}
+\noindent La méthode createSpectralSteps() permet de déduire la liste $[\Delta f_1, \cdots, \Delta f_n]$ à
+partir de  la liste $[T_1, \cdots, T_n]$. En effet pour $i \in \llbracket 1;n \rrbracket, \; \Delta f_i = \frac{1}{T_i}$.
+La syntaxe se présente ainsi:
+\begin{equation*} [\Delta f_1, \cdots, \Delta f_n] = createSpatialSteps([T_1, \cdots, T_n]) \end{equation*}
+
+
+Le fichier userDefinedSpectralModel.py contient une classe de même nom (à une majuscule près) ainsi qu'une fonction utile à la classe.
+Cette classe permet de définir une densité spectrale $S$ sur un pavé $D_f = [-f_{max,1}, f_{max,1}] \times \cdots \times [-f_{max,n}, f_{max,n}]$.
+Chaque arête $[-f_{max,j}, f_{max,j}]$ a été subdivisée en $N_j$ intervalles de longueur $\Delta f_j$
+de centres respectifs $f_{j,1}, \cdots, f_{j,N_j}$. La densité spectrale $S$ est définie
+sur $D_f$ par morceaux et est constante sur les pavés
+\begin{equation*}
+\tilde{M}_{(k_1,\cdots,k_n)} = [f_{1,k_1} -\frac{\Delta f_1}{2}, f_{1,k_1} + \frac{\Delta f_1}{2} [ \times \cdots \times [f_{n,k_n} -\frac{\Delta f_n}{2}, f_{n,k_n} + \frac{\Delta f_n}{2}[
+\end{equation*}
+où $(k_1,\cdots,k_n) \in \llbracket 1;N_1 \rrbracket \times \cdots \times \llbracket 1;N_n \rrbracket $.\\
+
+Le fichier testTool.py contient de multiples fonctions. On a la fonction checkCovariance() évoquée à la section~\ref{dossCholeskyM}.
+On rajoute ensuite la fonction createStationaryCovarianceModel() qui à partir d'un maillage $M$ donné et d'une
+fonction d'autocovariance $R$ allant de $\mathbb{R}^{n}$ dans $\mathbb{R}$ ($d$, la dimension de sortie vaut ici $1$)
+crée un modèle gaussien de covariance sur le maillage $M$, c'est-à-dire en utilisant les notations du
+chapitre~\ref{introProb} (où $m$ désigne le nombre de n\oe uds du maillage) que l'on simule
+le vecteur gaussien $\mathcal{N}(0_{\mathbb{R}^{dm}},\Sigma)$ où pour $n_i$ et $n_j$ deux n\oe uds du maillage
+, on a $\Sigma_{i,j} = C(n_i,n_j) = R(n_j - n_i)$.\\
+Ensuite pour $K \in \llbracket 1;3 \rrbracket$,
+on dispose des fonctions suivantes:  getNormInfDim$K$() et compareSpectralModelsNormInfDim$K$().
+Les deux fonctions nécessitent une famille $F$ de points de l'espace descriptibles de la
+même façon que les points \begin{equation*} ((f_{1,k_1}, \cdots, f_{n,k_n}))_{ k \in \llbracket 1;N_1 \rrbracket \times \cdots \times \llbracket 1;N_n \rrbracket} \end{equation*}
+évoqués plus tôt pour le fichier userDefinedSpectralModel.py. Pour getNormInf-
+Dim$K$(),
+avec l'information d'une densité spectrale $S$, la fonction va chercher le point dont la norme de Frobenius de
+son image par $S$ est la plus élevée et retournera cette valeur. Pour la fonction compareSpectralModelsNormInfDim$K$() avec l'information de deux densités
+spectrales $S_1$ et $S_2$, la fonction va chercher le point dont la norme de Frobenius de
+son image par $S_2 - S_1$ est la plus élevée et retournera cette valeur. C'est donc cette
+fonction que l'on utilisera pour évaluer l'erreur entre deux densités spectrales en les points de la famille $F$.\\
+La dernière fonction s'y trouvant est la fonction graphOfTwoModelsInputDim1OutputDim1() qui va dessiner
+le graphe de deux densités spectrales \\allant de $\mathbb{R}$ dans $\mathbb{R}$ dont on considère
+les valeurs pour les points de $F$.\\
+
+Le dernier fichier à évoquer est le fichier qui décrit des tests numériques:
+spectral.py. Le détail des tests effectués se trouvent dans la section~\ref{erreurConvSpectral}
+du chapitre~\ref{spectralMeth}.
+
+
+\section{Dossier P1InterpolationMethod}
+
+Le dossier est composé de trois fichiers. Le fichier testTool.py,
+le fichier P1Interpolation.py qui contient des tests numériques qui sont détaillés
+au chapitre~\ref{P1Interpol} à la section~\ref{P1interpolConvErr} et le fichier P1InterpolationGaussianProcess.py.
+Ce dernier fichier contient la classe qui implémente la méthode par $\mathbb{P}_{1}$-interpolation.
+Cette classe de nom P1InterpolationGaussianProcess contient, en plus du \\constructeur, la méthode
+getRealization(), getSample(), getMesh(), getOutputDimension(), changeEnvelopingProcess()
+et getEnvelopingMesh(). Ici ce que l'on désigne comme EnvelopingProcess désigne le champ gaussien simulé au niveau des n\oe uds du maillage EnvelopingMesh
+qui n'est rien d'autre que le maillage $M$ évoqué au début de la section~\ref{P1interpolConvErr} du chapitre~\ref{P1Interpol}.
