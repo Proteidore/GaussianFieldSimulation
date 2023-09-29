@@ -137,7 +137,15 @@ avoir l'extension .vtk : ce ne sont pas des fichiers images. Pour les fichiers .
 un logiciel de visualisation comme paraview permettant de visualiser les maillages ou les réalisations d'un processus.
 Dans ce cas, l'utilisateur est contraint de capturer l'image via le logiciel.
 
-       
+
+### KarhunenLoeveMethod
+
+Description d'une autre méthode de simulation de champs gaussiens à explorer: la méthode de Karhunen-Loeve
+
+          |__ klGaussianProcess.py   -> classe implémentant la méthode de Karhunen-Loeve 
           
+          |__ KLSimulationAlgorithm.ipynb   -> notebook expliquant cette méthode
+       
+          |__ testTool.py  -> fonctions utiles pour d'éventuels tests
           
 
