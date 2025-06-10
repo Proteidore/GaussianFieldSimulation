@@ -6,6 +6,10 @@ Français: Ce projet est un ensemble de benchmarks testant plusieurs méthodes d
 
 ## Description de l'arborescence de fichiers
 
+### RapportDeStage.pdf
+
+Rapport de stage sous format pdf
+
 ### Benchmarks
 
      ---> CholeskyMethod
